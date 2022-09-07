@@ -1,23 +1,19 @@
 import "./styles.css";
+import arzunique from "./JSque/arzunique";
 console.clear();
-// Q. possible way to create an object
 
-// const myobj = {};
-// const myobj = new Object();
+const app = document.querySelector("#app");
+const button = document.createElement("button");
+const h2 = document.createElement("h2");
 
-function MyObj(name) {
-  this.name = name;
-}
+const handleRandomText = () => {
+  h2.innerText = arzunique(20);
+};
 
-const myobj = new MyObj("Hi");
+button.innerText = "Generate Unique Number";
+button.onclick = handleRandomText;
+button.style.cursor = "pointer";
 
-class myobjclass {
-  constructor(name) {
-    this.name = name;
-  }
-}
-
-const myobj1 = new myobjclass("hi class");
-
-console.log(myobj1);
-console.log(myobj);
+// dom structure
+app.appendChild(button);
+app.appendChild(h2);
