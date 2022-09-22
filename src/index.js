@@ -1,19 +1,19 @@
 import "./styles.css";
-import arzunique from "./JSque/arzunique";
+
 console.clear();
 
-const app = document.querySelector("#app");
-const button = document.createElement("button");
-const h2 = document.createElement("h2");
+function getMaxLessThanK(n, k) {
+  let maximum = 0;
+  let current = -1;
+  for (let i = 1; i < k; i++) {
+    for (let j = i + 1; j <= n; j++) {
+      current = i & j;
+      if (current < k && current > maximum) {
+        maximum = current;
+      }
+    }
+  }
+  return maximum;
+}
 
-const handleRandomText = () => {
-  h2.innerText = arzunique(20);
-};
-
-button.innerText = "Generate Unique Number";
-button.onclick = handleRandomText;
-button.style.cursor = "pointer";
-
-// dom structure
-app.appendChild(button);
-app.appendChild(h2);
+console.log(getMaxLessThanK(5, 10));

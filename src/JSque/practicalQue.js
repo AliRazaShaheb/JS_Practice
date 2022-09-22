@@ -125,7 +125,7 @@ now we just assign key 'x' to box2 through foo without any value
 so it assign default javascript value 'undefined'
 */
 
-import AllPromises from "./JSque/JSPromises";
+// import AllPromises from "./JSque/JSPromises";
 
 console.clear();
 /* Q6.  What is the value of foo.length?
