@@ -232,4 +232,4 @@ function callerBack(holla, back) {
 }
 const back = "give it";
 const hola = (str) => str;
-console.log(callerBack(hola, back));
+// console.log(callerBack(hola, back));
