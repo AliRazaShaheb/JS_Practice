@@ -17,7 +17,7 @@ class ElementGenerator {
     elem.innerHTML = this.innterHTML;
   }
   innerHTML(inner) {
-    this.elem.innerHTML += inner || this.innterHTML;
+    this.elem.innerHTML += inner;
   }
   textReset() {
     this.elem.innerHTML = "";

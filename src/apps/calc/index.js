@@ -1,5 +1,6 @@
 import { calcData } from "./data";
 import { ElementGenerator } from "./element";
+import { keyboardKeysValue } from "./keyboardInputs";
 import { btnStyle, displayStyle, layoutStyle, rowStyle } from "./style";
 
 //refremtn to document
@@ -33,3 +34,5 @@ calcData.map((each) => {
 //
 calcLayout.css(layoutStyle);
 display.css(displayStyle);
+
+document.addEventListener("keydown", (e) => keyboardKeysValue(e, display));
