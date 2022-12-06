@@ -1,54 +1,42 @@
-const redux = require("redux");
-
-console.clear();
-// developer famouse validation button
-// as you seen in linkedin
-// if validation is wrong
-// hover on button will move
-
-// create store
-const createStore = redux.createStore;
-
-// constant action types
-const buy_cake = "BUY_CAKE";
-
-// initial state
-
-const initialState = {
-  numberOfCake: 10
+const testJson = {
+  doc_title: { value: "passport", error: false },
+  "doc_label#1": { value: "pass", error: false },
+  "field_label#1": { value: "name", error: false },
+  "field_type#1": { value: "text", error: false },
+  "field_label#2": { value: "gender", error: false },
+  "field_type#2": { value: "select", error: false },
+  "option#1": { value: "male", error: false },
+  "option#2": { value: "female", error: false },
 };
 
-// actions / action creator
-const buyCake = () => {
-  return {
-    type: buy_cake,
-    msg: "cake has been sold"
-  };
-};
-
-//reducers
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "BUY_CAKE":
-      return {
-        ...state,
-        numberOfCake: state.numberOfCake - 1
-      };
-    default:
-      return state;
+const jsonMaker = ()=> {
+  const obj_title={
+    title:null,
+    docs:[]
   }
-};
+  const obj_docs={
+    doc_title:null,
+    fields:[]
+  }
+  const obj_fields={
+    label:null,
+    type:null,
+    options:[]
+  }
+  const arr_options=[]
 
-//store
-const store = createStore(reducer);
+  for(let key in testJson){
+    const lookupKey = key.split('#')[0]
+    if(key==="doc_title"){
+      obj_title.title = testJson[key].value
+    }
+    if(lookupKey === "doc_label" ){
+      const doc_ = key.split('#')[0]
+      console.log(testJson[lookupKey])
+    }
+  }
+  return;
+}
 
-console.log("current state ", store.getState());
-const unsubscribe = store.subscribe(() =>
-  console.log("update state", store.getState())
-);
 
-store.dispatch(buyCake());
-store.dispatch(buyCake());
-store.dispatch(buyCake());
-store.dispatch(buyCake());
-unsubscribe();
+jsonMaker()
